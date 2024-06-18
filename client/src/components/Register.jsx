@@ -5,7 +5,7 @@ import {
   faInfoCircle,
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import axios from "./api/axios";
+import axios from "../api/axios";
 
 const NAME_REGEX = /^[A-Za-z ]{4,}$/; // Allow letters and space for name validation
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -259,7 +259,18 @@ const Register = () => {
               Format: YYYY-MM-DD.
             </p>
 
-            <button type="submit">Register</button>
+            <button
+              disabled={!validName || !validEmail || !validPhone || !validDob}
+            >
+              Sign Up
+            </button>
+            <p>
+              Already registered?
+              <br />
+              <span className="line">
+                <a href="#">Sign In</a>
+              </span>
+            </p>
           </form>
         </section>
       )}
